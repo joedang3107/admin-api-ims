@@ -83,6 +83,25 @@ server.use((req, res, next) => {
 
 // Use default router
 server.use(router)
-server.listen(3001, () => {
-    console.log('JSON Server is running at port 3001')
+
+function normalizePort(val) {
+    var port = parseInt(val, 10);
+
+    if (isNaN(port)) {
+        // named pipe
+        return val;
+    }
+
+    if (port >= 0) {
+        // port number
+        return port;
+    }
+
+    return false;
+}
+
+var port = normalizePort(process.env.PORT || '3001');
+
+server.listen(port, () => {
+    console.log('JSON Server is running at port', port)
 })
