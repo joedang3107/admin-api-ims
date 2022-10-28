@@ -35,7 +35,7 @@ console.log(myValues[6].__wrapped__.password.currentPassword);
 
 server.post('/auth/login', (req, res) => {
     const { username, password } = req.body
-   
+
     console.log(username, password)
 
     if (username === "admin" && password === myValues[6].__wrapped__.password.currentPassword) {
@@ -44,7 +44,7 @@ server.post('/auth/login', (req, res) => {
         res.jsonp({
             success: true,
             username: username,
-            pasword:password,
+            pasword: password,
             token
         })
     }
@@ -106,9 +106,17 @@ server.use(router)
 //     console.log('JSON Server is running at port', port)
 // })
 
+
+server.on('clientError', (err, socket) => {
+    console.log(err)
+    socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
+});
+
+
 const PORT = process.env.PORT || 3001;
 
 // Listen on port 3001
 server.listen(PORT, () =>
-  console.log(`Application is listening on port ${PORT}!`)
+    console.log(`Application is listening on port ${PORT}!`)
 );
+
