@@ -107,10 +107,10 @@ server.use(router)
 // })
 
 
-server.on('clientError', (err, socket) => {
-    console.log(err)
-    socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
-});
+// server.on('clientError', (err, socket) => {
+//     console.log(err)
+//     socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
+// });
 
 
 const PORT = process.env.PORT || 3001;
