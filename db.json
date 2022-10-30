@@ -216,6 +216,11 @@
       "leaveType": "",
       "reason": "",
       "dateRange" : ""
+    },
+    {
+      "leaveType": "a",
+      "reason": "b",
+      "dateRange" : "c"
     }
   ]
 }
