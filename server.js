@@ -106,13 +106,6 @@ server.use(router)
 //     console.log('JSON Server is running at port', port)
 // })
 
-
-// server.on('clientError', (err, socket) => {
-//     console.log(err)
-//     socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
-// });
-
-
 const PORT = process.env.PORT || 3001;
 
 // Listen on port 3001
